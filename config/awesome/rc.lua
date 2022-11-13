@@ -46,9 +46,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.font = "Sans Regular 11"
+beautiful.useless_gap = 15
 
 -- This is used later as the default terminal and editor to run.
-terminal = "konsole"
+terminal = os.getenv("TERMINAL")
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -61,18 +63,18 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
 --    awful.layout.suit.tile.left,
 --    awful.layout.suit.tile.bottom,
 --    awful.layout.suit.tile.top,
 --    awful.layout.suit.fair,
 --    awful.layout.suit.fair.horizontal,
---    awful.layout.suit.spiral,
 --    awful.layout.suit.spiral.dwindle,
 --    awful.layout.suit.max,
 --    awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
+    awful.layout.suit.spiral,
 --    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -195,8 +197,9 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
-    -- Create the wibox
---    s.mywibox = awful.wibar({ position = "top", screen = s })
+--
+--    -- Create the wibox
+--    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 --
 --    -- Add widgets to the wibox
 --    s.mywibox:setup {
@@ -229,6 +232,8 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ modkey,		 }, "w", function () awful.spawn(os.getenv("BROWSER")) end,
+              {description = "open browser", group = "launcher"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -250,8 +255,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    --awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --          {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -370,8 +375,7 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
-)
+        {description = "(un)maximize horizontally", group = "client"}))
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
@@ -490,7 +494,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -562,3 +566,16 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+--
+client.connect_signal("manage", function(c)
+    c.shape = function(cr, w, h)
+	--os.execute("notify-send -u low "..c.name)
+	if c.name == "xfce4-panel" then
+        	gears.shape.rounded_rect(cr, w, h, 0 )
+	else
+        	gears.shape.rounded_rect(cr, w, h, 15 )
+	end
+    end
+end)
+
+awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/wallpaper.png") 

@@ -2,9 +2,11 @@
 
 ./install_basic.sh
 
-./install_xfce4.sh
+# ./install_xfce4.sh
 
-./install_awesome.sh
+# ./install_awesome.sh
+
+./install_de_config.sh
 
 ./install_directories.sh
 
