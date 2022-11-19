@@ -21,8 +21,8 @@ mkdir -p ~/.config/awesome
 
 cp ./config/awesome/* ~/.config/awesome/
 
-# install konsole
+# install usefull app
 
-sudo pacman -Sy konsole 
+sudo pacman -Sy konsole gnome-clocks
 
 cp -r ./config/konsolerc ~/.config

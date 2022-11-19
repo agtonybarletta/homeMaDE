@@ -1,20 +1,33 @@
 # Personal Rice - Desktop Environment
 
-This is a set of scripts used to install a set of programs along side some 
-usefull script and configurations
+This is a set of scripts to install all programs and configuratios of xfce4+awesomeWm setup
 
 ## Requirements
 
-Debian sed must be already installed before funning this scripts.
-Lua environment must be installed before lunching the script
+~Debian~ Arch linux must be already installed before funning this scripts.
+A clean installation with `archinstall` should do the work.
 
 ## Desktop environment
 
-- Distribution: debian sed
+- Distribution: Arch linux
+- Desktop Environment: Xfce4
 - Windows Manager: AwesomeWM
+- Terminal: Konsole
+- Theme: Adwaita-dark 
 
 
-## What this script does
+## Run
 
-1. Install necessary dependencies (apt)
-2. Copy .config files into ~/.config
+```bash
+./install.sh
+```
+
+## TODO
+- [ ] use script.sh template on install_basic.sh
+- [ ] use script.sh template on install_de_config.sh
+- [ ] use script.sh template on install_directories.sh
+- [ ] look for autocompletion feature on bash read command (for install_directories.sh)
+- [ ] make install_directories.sh interactive
+- [ ] dive into awesome theming (color scheme)
+- [ ] write script to compile sass Awaita theme using custom color scheme
+- [ ] Make this configuration multi distro (arch & debian)

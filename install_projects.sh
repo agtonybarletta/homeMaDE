@@ -17,9 +17,6 @@ program_desc="install projects from file list"
 verbose=0
 silent=0
 file_list="projects_list.txt"
-example_argument_b=0
-example_mandatory_positional_argument="default_c"
-example_argument_opt=0
 
 usage(){
 	cat <<END_USAGE
