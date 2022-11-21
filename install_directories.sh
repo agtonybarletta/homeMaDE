@@ -80,6 +80,7 @@ ask_input(){
 
 	if [  $answer ==  false ]; then
 		msgv "ask_input returning with value answer $answer"
+		mkdir /home/$USER/$1
 		return -1;
 	fi
 
