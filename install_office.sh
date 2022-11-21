@@ -1,7 +1,7 @@
 #!/bin/bash
 
-program_name="install_media.sh"
-program_desc="Install all the media tools needed (audio, video, images, 3d modeling)"
+program_name="script.sh"
+program_desc="my personal bash script template"
 #    Copyright (C) 2020 A.G. Tony Barletta
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ silent=0
 usage(){
 	cat <<END_USAGE
 	usage: 
-	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help]
+	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help] 
 
 	options:
 	  -v --verbose 					turn on verbose output
@@ -53,6 +53,7 @@ msge(){
 	>&2 echo $*
 }
 
+
 while [[ $# -gt 0 ]]; do
 	opt=$1
 	value=$2
@@ -67,6 +68,18 @@ while [[ $# -gt 0 ]]; do
 			;;
 		-s|--silent)
 			silent=1
+			shift 1
+			;;
+		-a|--example_argument_a)
+			example_argument_a=$value
+			shift 2
+			;;
+		-b)
+			example_argument_b=$value
+			shift 2
+			;;
+		-o|--example_argument_opt)
+			example_argument_opt=1
 			shift 1
 			;;
 		*)
@@ -90,30 +103,10 @@ msgv 	silent: $silent
 #	\__ \ || (_| | |  | |_ 
 #	|___/\__\__,_|_|   \__|
 
-msg --------------------------
-msg installing image tools
-msg --------------------------
-sudo pacman --noconfirm -Sy imagemagick rawthreapee #darktable  gimp inkscape 
+#install pandoc
 
-msg --------------------------
-msg installing video tools
-msg --------------------------
-sudo pacman --noconfirm -Sy vlc
+#install pdf
 
-msg -------------------------
-msg installing music tools
-msg --------------------------
-sudo pacman --noconfirm -Sy clementine ffmpeg
+#install libreoffice
 
-msg -------------------------
-msg install 3d modellin tools
-msg --------------------------
-sudo pacman --noconfirm -Sy freecad prusa-slicer # blender  
-yay -Sy printrun
-
-
-# mkdir -p ~/.local/bin
-# wget -O ~/.local/bin/Ultimaker-Cura-5.2.1-linux-modern.AppImage "https://github.com/Ultimaker/Cura/releases/download/5.2.1/Ultimaker-Cura-5.2.1-linux-modern.AppImage"
-# chmod +x ~/.local/bin/Ultimaker-Cura-5.2.1-linux-modern.AppImage
-
-
+sudo pacman --noconfirm -Sy libreoffice-fresh pandoc texlive-corexreader calibre

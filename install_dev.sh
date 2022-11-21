@@ -1,7 +1,7 @@
 #!/bin/bash
 
-program_name="install_media.sh"
-program_desc="Install all the media tools needed (audio, video, images, 3d modeling)"
+program_name="install_dev.sh"
+program_desc="developer tools installers"
 #    Copyright (C) 2020 A.G. Tony Barletta
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@ usage(){
 	  -v --verbose 					turn on verbose output
 	  -s --silent 					turn off all output
 	  -h --help 					show help
+
 END_USAGE
 }
 help(){
@@ -69,6 +70,18 @@ while [[ $# -gt 0 ]]; do
 			silent=1
 			shift 1
 			;;
+		-a|--example_argument_a)
+			example_argument_a=$value
+			shift 2
+			;;
+		-b)
+			example_argument_b=$value
+			shift 2
+			;;
+		-o|--example_argument_opt)
+			example_argument_opt=1
+			shift 1
+			;;
 		*)
 			msg Unknow argument $opt
 			usage
@@ -90,30 +103,64 @@ msgv 	silent: $silent
 #	\__ \ || (_| | |  | |_ 
 #	|___/\__\__,_|_|   \__|
 
-msg --------------------------
-msg installing image tools
-msg --------------------------
-sudo pacman --noconfirm -Sy imagemagick rawthreapee #darktable  gimp inkscape 
+# installing git, vi, vim, neovim, nano
 
-msg --------------------------
-msg installing video tools
-msg --------------------------
-sudo pacman --noconfirm -Sy vlc
+msg Installing basic tools
 
-msg -------------------------
-msg installing music tools
-msg --------------------------
-sudo pacman --noconfirm -Sy clementine ffmpeg
+sudo pacman --noconfirm -Sy git vi vim neovim nano code
 
-msg -------------------------
-msg install 3d modellin tools
-msg --------------------------
-sudo pacman --noconfirm -Sy freecad prusa-slicer # blender  
-yay -Sy printrun
+# installing c, cpp
 
+msg Installing c/cpp tools
 
-# mkdir -p ~/.local/bin
-# wget -O ~/.local/bin/Ultimaker-Cura-5.2.1-linux-modern.AppImage "https://github.com/Ultimaker/Cura/releases/download/5.2.1/Ultimaker-Cura-5.2.1-linux-modern.AppImage"
-# chmod +x ~/.local/bin/Ultimaker-Cura-5.2.1-linux-modern.AppImage
+sudo pacman --noconfirm -Sy gcc g++ make clang clang++
+
+# install node
+
+msg nodejs tools
+
+yay -S nvm
+
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
+
+source /usr/share/nvm/init-nvm.sh
+
+nvm install 18
+
+nvm use 18
+
+sudo pacman --noconfirm -Sy npm
+
+# install java
+
+msg java tools
+
+sudo pacman --noconfirm -Sy jre-openjdk jdk-openjdk openjdk-doc
+
+# install python
+
+msg python tools
+
+sudo pacman --noconfirm -Sy python python-pip pip python-virtualenv
+
+# install lua
+
+msg lua tools
+
+sudo pacman --noconfirm -Sy lua luajit
+
+# installing IDEs
+
+msg installing IDEs
+
+sudo pacman --noconfirm -Sy code $ eclipse-jee
+# yay -S intellij-idea-community-edition
+
+# install other
+
+msg installing others
+
+# sudo pacman -Sy docker dbeaver mariadb mysql
+# yay -S postaman-bin 
 
 

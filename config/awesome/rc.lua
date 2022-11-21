@@ -234,6 +234,8 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,		 }, "w", function () awful.spawn(os.getenv("BROWSER")) end,
               {description = "open browser", group = "launcher"}),
+    awful.key({ modkey,		 }, "c", function () awful.spawn("sh -c 'xdotool sleep 0.1 key --clearmodifiers Multi_key'") end,
+              {description = "activate compose key", group = "key"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -500,6 +502,16 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+    { rule_any = {
+	name = { "Shut Down",
+		 "Suspend",
+		 "Restart",
+		 "Wi-Fi Network Authentication Required",
+		 "Application Finder"
+	 },
+    },
+	properties = { placement = awful.placement.centered, floating = true}
+    },
 }
 -- }}}
 
@@ -570,7 +582,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 client.connect_signal("manage", function(c)
     c.shape = function(cr, w, h)
 	--os.execute("notify-send -u low "..c.name)
-	if c.name == "xfce4-panel" then
+	if c.name == "xfce4-panel"  or c.maximized or c.fullscreen then
         	gears.shape.rounded_rect(cr, w, h, 0 )
 	else
         	gears.shape.rounded_rect(cr, w, h, 15 )
