@@ -45,7 +45,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+--beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init("~/.config/awesome/theme.lua")
+--awful.spawn.with_shell("notify-send -u low "..gears.filesystem.get_themes_dir() .. "default/theme.lua &")
 beautiful.font = "Sans Regular 11"
 beautiful.useless_gap = 15
 
@@ -61,11 +63,16 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
+custom_layout = require("custom-layout")
 awful.layout.layouts = {
     awful.layout.suit.tile,
+    custom_layout,
+    awful.layout.suit.spiral,
     awful.layout.suit.floating,
 --    awful.layout.suit.tile.left,
+--    awful.layout.suit.floating,
 --    awful.layout.suit.tile.bottom,
 --    awful.layout.suit.tile.top,
 --    awful.layout.suit.fair,
@@ -73,8 +80,7 @@ awful.layout.layouts = {
 --    awful.layout.suit.spiral.dwindle,
 --    awful.layout.suit.max,
 --    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.spiral,
+--    awful.layout.suit.magnifier,
 --    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -224,9 +230,9 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)--,
+--    awful.button({ }, 4, awful.tag.viewnext),
+--    awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -234,7 +240,7 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,		 }, "w", function () awful.spawn(os.getenv("BROWSER")) end,
               {description = "open browser", group = "launcher"}),
-    awful.key({ modkey,		 }, "c", function () awful.spawn("sh -c 'xdotool sleep 0.1 key --clearmodifiers Multi_key'") end,
+    awful.key({ modkey,		 }, "c", function () awful.spawn("sh -c 'xdotool sleep 0.5 key --clearmodifiers Multi_key'") end,
               {description = "activate compose key", group = "key"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -571,9 +577,9 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+--client.connect_signal("mouse::enter", function(c)
+--    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+--end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
@@ -591,3 +597,5 @@ client.connect_signal("manage", function(c)
 end)
 
 awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/wallpaper.png") 
+
+-- fixing theme

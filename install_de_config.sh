@@ -10,6 +10,10 @@ sudo pacman --noconfirm -Sy chromium pulseaudio libcanberra pavucontrol network-
 
 cp -r ./config/xfce4 ~/.config
 
+## quick note: here is what to move from ~/.config/xfce to ./config/xfce (with relative path)
+# - xsettings.xml (contain fonts + themes etc)
+#
+
 # install awesomeWM
 
 sudo pacman --noconfirm -Sy awesome feh xdotool
@@ -23,4 +27,6 @@ cp ./config/awesome/* ~/.config/awesome/
 # install usefull app
 sudo pacman --noconfirm -Sy konsole gnome-clocks
 cp -r ./config/konsolerc ~/.config
-cp -r ./config/gtk3.0 ~/.config
+cp -r ./config/konsole ~/.local/share/
+
+cp -r ./config/gtk-3.0 ~/.config

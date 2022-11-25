@@ -118,6 +118,12 @@ if [ ! -x $(command -v git ) ]; then
 	exit -1
 fi
 
+## setup project folder
+
+if [ ! -d /home/$USER/projects ] ; then
+	mkdir -p /home/$USER/projects
+fi
+
 # check file list
 
 if [ ! -f $file_list ]; then

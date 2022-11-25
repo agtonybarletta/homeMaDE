@@ -135,7 +135,7 @@ sudo pacman --noconfirm -Sy npm
 
 msg java tools
 
-sudo pacman --noconfirm -Sy jre-openjdk jdk-openjdk openjdk-doc
+sudo pacman --noconfirm -Sy jre-openjdk jdk-openjdk openjdk-doc maven
 
 # install python
 
@@ -153,7 +153,7 @@ sudo pacman --noconfirm -Sy lua luajit
 
 msg installing IDEs
 
-sudo pacman --noconfirm -Sy code $ eclipse-jee
+sudo pacman --noconfirm -Sy code # eclipse-jee
 # yay -S intellij-idea-community-edition
 
 # install other

@@ -1,3 +1,2 @@
-git@github.com:agtonybarletta/example.git
-git@github.com:username/example2.git,/home/user/path/to/dest
-git@github.com:username/example3.git,
+git@github.com:agtonybarletta/website.git
+git@github.com:agtonybarletta/urlshortener.git
