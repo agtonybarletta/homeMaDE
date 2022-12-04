@@ -9,14 +9,14 @@
       <property name="position" type="string" value="p=6;x=0;y=0"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
-      <property name="icon-size" type="uint" value="18"/>
-      <property name="size" type="uint" value="36"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="40"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="4"/>
         <value type="int" value="15"/>
-        <value type="int" value="2"/>
-        <value type="int" value="3"/>
+        <value type="int" value="7"/>
+        <value type="int" value="16"/>
         <value type="int" value="6"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
@@ -27,25 +27,20 @@
         <value type="int" value="14"/>
       </property>
       <property name="nrows" type="uint" value="1"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
     </property>
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-1" type="string" value="applicationsmenu">
       <property name="show-menu-icons" type="bool" value="true"/>
       <property name="show-button-title" type="bool" value="false"/>
-    </property>
-    <property name="plugin-2" type="string" value="tasklist">
-      <property name="grouping" type="uint" value="1"/>
-      <property name="show-handle" type="bool" value="false"/>
-      <property name="show-labels" type="bool" value="true"/>
-      <property name="flat-buttons" type="bool" value="false"/>
-      <property name="include-all-workspaces" type="bool" value="false"/>
-      <property name="show-only-minimized" type="bool" value="false"/>
-      <property name="show-wireframes" type="bool" value="true"/>
-    </property>
-    <property name="plugin-3" type="string" value="separator">
-      <property name="expand" type="bool" value="true"/>
-      <property name="style" type="uint" value="0"/>
+      <property name="show-tooltips" type="bool" value="false"/>
+      <property name="custom-menu" type="bool" value="false"/>
+      <property name="show-generic-names" type="bool" value="false"/>
     </property>
     <property name="plugin-4" type="string" value="pager">
       <property name="rows" type="uint" value="1"/>
@@ -56,18 +51,27 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (47%)"/>
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (55%)"/>
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (64%)"/>
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (54%)"/>
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (65%)"/>
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (56%)"/>
+        <value type="string" value="wi-fi network connection “tim-31000548” active: tim-31000548 (57%)"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="ethernet network connection “wired connection 1” active"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="vlc"/>
+        <value type="string" value="blueman"/>
         <value type="string" value="Clementine"/>
       </property>
     </property>
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chromium.instance1021;chromium.instance1130;chromium.instance11383;chromium.instance1142;chromium.instance1157;chromium.instance1549;chromium.instance18773;chromium.instance2089;chromium.instance2722;chromium.instance28352;chromium.instance29769;chromium.instance31217;chromium.instance32514;chromium.instance43029;chromium.instance4611;chromium.instance5508;chromium.instance55529;chromium.instance56125;chromium.instance685;chromium.instance699;chromium.instance716;chromium.instance784;chromium.instance792;chromium.instance8010;chromium.instance828;chromium.instance95381;chromium.instance97025;clementine"/>
+      <property name="mpris-players" type="string" value="chromium.instance1021;chromium.instance10711;chromium.instance1130;chromium.instance11383;chromium.instance1142;chromium.instance1156;chromium.instance1157;chromium.instance1170;chromium.instance1233;chromium.instance1246;chromium.instance1255;chromium.instance14861;chromium.instance1549;chromium.instance1619;chromium.instance1620;chromium.instance1665;chromium.instance18773;chromium.instance2089;chromium.instance22432;chromium.instance24186;chromium.instance25949;chromium.instance2722;chromium.instance27817;chromium.instance28352;chromium.instance29769;chromium.instance31217;chromium.instance32514;chromium.instance38755;chromium.instance43029;chromium.instance4328;chromium.instance4611;chromium.instance5508;chromium.instance55529;chromium.instance5604;chromium.instance56125;chromium.instance685;chromium.instance699;chromium.instance716;chromium.instance784;chromium.instance792;chromium.instance8010;chromium.instance828;chromium.instance8867;chromium.instance95381;chromium.instance97025;clementine;vlc"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-10" type="string" value="notification-plugin"/>
@@ -105,6 +109,18 @@
     <property name="plugin-15" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-7" type="string" value="tasklist">
+      <property name="include-all-workspaces" type="bool" value="false"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+      <property name="sort-order" type="uint" value="3"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="false"/>
+    </property>
+    <property name="plugin-16" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
     </property>
   </property>
 </channel>

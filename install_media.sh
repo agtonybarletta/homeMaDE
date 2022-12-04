@@ -93,23 +93,23 @@ msgv 	silent: $silent
 msg --------------------------
 msg installing image tools
 msg --------------------------
-sudo pacman --noconfirm -Sy imagemagick rawthreapee #darktable  gimp inkscape 
+sudo pacman --noconfirm -S imagemagick rawthreapee #darktable  gimp inkscape 
 
 msg --------------------------
 msg installing video tools
 msg --------------------------
-sudo pacman --noconfirm -Sy vlc
+sudo pacman --noconfirm -S vlc
 
 msg -------------------------
 msg installing music tools
 msg --------------------------
-sudo pacman --noconfirm -Sy clementine ffmpeg
+sudo pacman --noconfirm -S clementine ffmpeg
 
 msg -------------------------
 msg install 3d modellin tools
 msg --------------------------
-sudo pacman --noconfirm -Sy freecad prusa-slicer # blender  
-yay -Sy printrun
+sudo pacman --noconfirm -S freecad prusa-slicer # blender  
+yay -S printrun
 
 
 # mkdir -p ~/.local/bin

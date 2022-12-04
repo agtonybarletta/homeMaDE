@@ -4,6 +4,7 @@
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
+
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
@@ -25,9 +26,9 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(3)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_width  = dpi(5)
+theme.border_normal = "#00000011"
+theme.border_focus  = "#535d6cDD"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -57,6 +58,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
+notification_position = "top_middle"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]

@@ -238,10 +238,6 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ modkey,		 }, "w", function () awful.spawn(os.getenv("BROWSER")) end,
-              {description = "open browser", group = "launcher"}),
-    awful.key({ modkey,		 }, "c", function () awful.spawn("sh -c 'xdotool sleep 0.5 key --clearmodifiers Multi_key'") end,
-              {description = "activate compose key", group = "key"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -339,7 +335,16 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey,		 }, "n", 
+    function ()
+	awful.spawn.with_shell("notify-send -u low $( xclip -o ) &")
+    end,
+              {description = "open browser", group = "launcher"}),
+    awful.key({ modkey,		 }, "w", function () awful.spawn(os.getenv("BROWSER")) end,
+              {description = "open browser", group = "launcher"}),
+    awful.key({ modkey,		 }, "c", function () awful.spawn("sh -c 'xdotool sleep 0.5 key --clearmodifiers Multi_key'") end,
+              {description = "activate compose key", group = "key"})
 )
 
 clientkeys = gears.table.join(
@@ -518,6 +523,8 @@ awful.rules.rules = {
     },
 	properties = { placement = awful.placement.centered, floating = true}
     },
+    { rule = { instance = "xfce4-panel"} , properties = { border_width = false } },
+    --{ rule = { properties = { focus = false}} , properties = { border_width = false } },
 }
 -- }}}
 
@@ -581,8 +588,16 @@ end)
 --    c:emit_signal("request::activate", "mouse_enter", {raise = false})
 --end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", 
+function(c)
+	c.border_color = beautiful.border_focus
+	--c.border_width = beautiful.border_width
+end)
+client.connect_signal("unfocus",
+function(c)
+--	c.border_width = "0"
+	c.border_color = beautiful.border_normal
+end)
 -- }}}
 --
 client.connect_signal("manage", function(c)
@@ -590,12 +605,16 @@ client.connect_signal("manage", function(c)
 	--os.execute("notify-send -u low "..c.name)
 	if c.name == "xfce4-panel"  or c.maximized or c.fullscreen then
         	gears.shape.rounded_rect(cr, w, h, 0 )
+		--c.border_width = 0
 	else
-        	gears.shape.rounded_rect(cr, w, h, 15 )
+        	gears.shape.rounded_rect(cr, w, h, 10 )
+		--c.border_width = beautiful.border_width
 	end
     end
 end)
 
-awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/wallpaper.png") 
+
+awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/wallpaper.jpg") 
+awful.spawn.with_shell("picom") 
 
 -- fixing theme
