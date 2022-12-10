@@ -3,7 +3,7 @@
 #!/bin/bash
 
 program_name="install_basic.sh"
-program_desc="Install script for basic gnu/linux packages"
+program_desc="Install script for basic gnu/linux packages such as command line tools (htop, wget, curl), vi/vim editor and build tools. It also install user repository tools (yay) "
 #    Copyright (C) 2020 A.G. Tony Barletta
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,20 +18,19 @@ program_desc="Install script for basic gnu/linux packages"
 
 verbose=0
 silent=0
-example_argument_a="default_a"
-example_argument_b=0
-example_mandatory_positional_argument="default_c"
-example_argument_opt=0
+logfile="output.log"
 
 usage(){
 	cat <<END_USAGE
 	usage: 
-	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help] 
+	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help] [-l|--logfile <logfilename>]
+
 
 	options:
 	  -v --verbose 					turn on verbose output
 	  -s --silent 					turn off all output
 	  -h --help 					show help
+	  -l --logfile 					set log file [default: $logfile]
 
 END_USAGE
 }
@@ -60,6 +59,14 @@ msge(){
 	>&2 echo $*
 }
 
+check_output(){
+	if [ "$1" -le "-1" ]; then
+		msge got status code $1
+		msge exiting
+	fi
+	return $1
+}
+
 
 while [[ $# -gt 0 ]]; do
 	opt=$1
@@ -77,6 +84,10 @@ while [[ $# -gt 0 ]]; do
 			silent=1
 			shift 1
 			;;
+		-l|--logfile)
+			logfile=$value
+			shift 2
+			;;
 		*)
 			msg Unknow argument $opt
 			usage
@@ -85,11 +96,10 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
-
-
 msgv 	argument passed:
 msgv 	verbose: $verbose
 msgv 	silent: $silent
+msgv 	logfile: $logfile
 
 #	     _             _   
 #	 ___| |_ __ _ _ __| |_ 
@@ -97,18 +107,29 @@ msgv 	silent: $silent
 #	\__ \ || (_| | |  | |_ 
 #	|___/\__\__,_|_|   \__|
 
+
+msg --------------------------
 msg starting installing basic
+msg --------------------------
 
 # install basics 
-sudo pacman --noconfirm -Sy git vi vim man base-devel tree htop curl wget neofetch unzip
+sudo pacman --noconfirm -Sy git vi vim man base-devel tree htop curl wget neofetch unzip >> $logfile
+check_output $? || exit -1
 
 msg installed packages
 
-
+msg --------------------------
 msg installing yay
+msg --------------------------
 
 # install yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+git clone --quiet https://aur.archlinux.org/yay.git ~/yay >> $logfile
+check_output $? || exit -1
+old=$(pwd)
+cd ~/yay
+makepkg -si --noprogressbar --noconfirm	 >> $logfile 
+check_output $? || exit -1
 rm -rf yay
+check_output $? || exit -1
+cd $old
+msg yay installed

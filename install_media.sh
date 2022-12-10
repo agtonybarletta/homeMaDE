@@ -16,16 +16,19 @@ program_desc="Install all the media tools needed (audio, video, images, 3d model
 
 verbose=0
 silent=0
+logfile="output.log"
 
 usage(){
 	cat <<END_USAGE
 	usage: 
-	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help]
+	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help] [-l|--logfile <logfilename>]
+
 
 	options:
 	  -v --verbose 					turn on verbose output
 	  -s --silent 					turn off all output
 	  -h --help 					show help
+	  -l --logfile 					set log file [default: $logfile]
 END_USAGE
 }
 help(){
@@ -53,6 +56,14 @@ msge(){
 	>&2 echo $*
 }
 
+check_output(){
+	if [ "$1" -ne "0" ]; then
+		msge got status code $1
+		msge exiting
+	fi
+	return $1
+}
+
 while [[ $# -gt 0 ]]; do
 	opt=$1
 	value=$2
@@ -69,6 +80,10 @@ while [[ $# -gt 0 ]]; do
 			silent=1
 			shift 1
 			;;
+		-l|--logfile)
+			logfile=$value
+			shift 2
+			;;
 		*)
 			msg Unknow argument $opt
 			usage
@@ -82,7 +97,7 @@ done
 msgv 	argument passed:
 msgv 	verbose: $verbose
 msgv 	silent: $silent
-
+msgv 	logfile: $logfile
 
 #	     _             _   
 #	 ___| |_ __ _ _ __| |_ 
@@ -93,27 +108,34 @@ msgv 	silent: $silent
 msg --------------------------
 msg installing image tools
 msg --------------------------
-sudo pacman --noconfirm -S imagemagick rawthreapee #darktable  gimp inkscape 
+sudo pacman -S --noconfirm imagemagick rawtherapee gimp  >> $logfile # darktable  gimp inkscape
+check_output $? || exit -1
 
 msg --------------------------
 msg installing video tools
 msg --------------------------
-sudo pacman --noconfirm -S vlc
+sudo pacman -S --noconfirm vlc >> $logfile
+check_output $? || exit -1
 
 msg -------------------------
 msg installing music tools
 msg --------------------------
-sudo pacman --noconfirm -S clementine ffmpeg
+sudo pacman -S --noconfirm clementine ffmpeg >> $logfile
+check_output $? || exit -1
 
 msg -------------------------
 msg install 3d modellin tools
 msg --------------------------
-sudo pacman --noconfirm -S freecad prusa-slicer # blender  
-yay -S printrun
+sudo pacman -S --noconfirm freecad prusa-slicer >> $logfile # blender   
+check_output $? || exit -1
+yay -S --noconfirm --noprogressbar printrun >> $logfile
+check_output $? || exit -1
 
+msg -------------------------
+msg installling office tools
+msg --------------------------
+sudo pacman -S --noconfirm libreoffice-fresh pandoc texlive-corexreader calibre >> $logfile
+check_output $?
 
-# mkdir -p ~/.local/bin
-# wget -O ~/.local/bin/Ultimaker-Cura-5.2.1-linux-modern.AppImage "https://github.com/Ultimaker/Cura/releases/download/5.2.1/Ultimaker-Cura-5.2.1-linux-modern.AppImage"
-# chmod +x ~/.local/bin/Ultimaker-Cura-5.2.1-linux-modern.AppImage
-
+msg media tools installed!
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 program_name="install_de_config.sh"
-program_desc="Installation script for basic Desktop Environment (xfce+awesome) configuration"
+program_desc="Installation script for basic Desktop Environment (xfce+awesome) configuration. In copy configuration files for xfce, awesomeWM and Konsole"
 #    Copyright (C) 2020 A.G. Tony Barletta
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -16,6 +16,7 @@ program_desc="Installation script for basic Desktop Environment (xfce+awesome) c
 
 verbose=0
 silent=0
+logfile=output.log
 
 usage(){
 	cat <<END_USAGE
@@ -26,6 +27,7 @@ usage(){
 	  -v --verbose 					turn on verbose output
 	  -s --silent 					turn off all output
 	  -h --help 					show help
+	  -l --logfile 					set log file [default: $logfile]
 END_USAGE
 }
 help(){
@@ -53,6 +55,14 @@ msge(){
 	>&2 echo $*
 }
 
+check_output(){
+	if [ "$1" -le "-1" ]; then
+		msge got status code $1
+		msge exiting
+	fi
+	return $1
+}
+
 while [[ $# -gt 0 ]]; do
 	opt=$1
 	value=$2
@@ -69,6 +79,10 @@ while [[ $# -gt 0 ]]; do
 			silent=1
 			shift 1
 			;;
+		-l|--logfile)
+			logfile=$value
+			shift 2
+			;;
 		*)
 			msg Unknow argument $opt
 			usage
@@ -82,12 +96,7 @@ done
 msgv 	argument passed:
 msgv 	verbose: $verbose
 msgv 	silent: $silent
-
-stdout=&1
-
-stderr=&2
-
-if [ $silent == 1 ] ; then stdout=/dev/null; stderr=/dev/null; fi
+msgv 	logfile: $logfile
 
 #	     _             _   
 #	 ___| |_ __ _ _ __| |_ 
@@ -95,40 +104,60 @@ if [ $silent == 1 ] ; then stdout=/dev/null; stderr=/dev/null; fi
 #	\__ \ || (_| | |  | |_ 
 #	|___/\__\__,_|_|   \__|
 
-{
-	# install xfce
 
-	sudo pacman --noconfirm -Sy xfce4 xfce4-goodies
-
-	cp ./.xinitrc ~/
-
-	sudo pacman --noconfirm -Sy chromium pulseaudio libcanberra pavucontrol network-manager-applet xdg-user-dirs noto-fonts-emoji ntfs-3g thunar-volman gvfs pass xclip pulseaudio-bluetooth bluez blueman 
-
-	cp -r ./config/xfce4 ~/.config
-
-	cp -r ./config/user-dirs.dirs ~/.config
-
-	## quick note: here is what to move from ~/.config/xfce to ./config/xfce (with relative path)
-	# - xsettings.xml (contain fonts + themes etc)
-	#
-
-	# install awesomeWM
-
-	sudo pacman --noconfirm -Sy awesome feh xdotool picom
-
-	# sed -i '1iawesome &' ~/.xinitrc
-
-	mkdir -p ~/.config/awesome
-
-	cp ./config/awesome/* ~/.config/awesome/
-
-	# install usefull app
-	sudo pacman --noconfirm -Sy konsole gnome-clocks
-
-	cp -r ./config/konsolerc ~/.config
-	cp -r ./config/konsole ~/.local/share/
-
-	# cp -r ./config/gtk-3.0 ~/.config
+msg installing xfce4 
+sudo pacman --noconfirm -Sy xfce4 xfce4-goodies >> $logfile
+check_output $? || exit -1
 
 
-} > $stdout 2> $stderr
+
+msg setting .xinitrc
+
+cp ./.xinitrc ~/
+check_output $? || exit -1
+
+
+
+msg coping xfce4 config files
+
+cp -r ./config/xfce4 ~/.config
+check_output $? || exit -1
+cp -r ./config/user-dirs.dirs ~/.config
+check_output $? || exit -1
+
+
+
+msg installing awesomeWM and its utils
+
+sudo pacman --noconfirm -Sy awesome feh xdotool picom >> $logfile
+check_output $? || exit -1
+
+
+
+msg installing awesomeWM config files
+
+mkdir -p ~/.config/awesome
+check_output $? || exit -1
+cp ./config/awesome/* ~/.config/awesome/
+check_output $? || exit -1
+
+
+
+msg installing DE utils
+
+sudo pacman --noconfirm -Sy chromium pulseaudio libcanberra pavucontrol \
+	network-manager-applet xdg-user-dirs noto-fonts-emoji ntfs-3g   \
+	thunar-volman gvfs pass xclip pulseaudio-bluetooth bluez blueman \
+	konsole gnome-clocks >> $logfile
+check_output $? || exit -1
+
+
+
+msg copying konsole configs
+
+cp -r ./config/konsolerc ~/.config
+check_output $? || exit -1
+cp -r ./config/konsole ~/.local/share/
+check_output $? || exit -1
+
+msg DE configs installed!

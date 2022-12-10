@@ -16,16 +16,18 @@ program_desc="developer tools installers"
 
 verbose=0
 silent=0
+logfile="output.log"
 
 usage(){
 	cat <<END_USAGE
 	usage: 
-	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help]
+	  ./$program_name.sh [-v|--verbose] [-s|--silent] [-h|--help] [-l|--logfile <logfilename>]
 
 	options:
 	  -v --verbose 					turn on verbose output
 	  -s --silent 					turn off all output
 	  -h --help 					show help
+	  -l --logfile 					set log file [default: $logfile]
 
 END_USAGE
 }
@@ -54,6 +56,14 @@ msge(){
 	>&2 echo $*
 }
 
+check_output(){
+	if [ "$1" -le "-1" ]; then
+		msge got status code $1
+		msge exiting
+	fi
+	return $1
+}
+
 while [[ $# -gt 0 ]]; do
 	opt=$1
 	value=$2
@@ -70,17 +80,9 @@ while [[ $# -gt 0 ]]; do
 			silent=1
 			shift 1
 			;;
-		-a|--example_argument_a)
-			example_argument_a=$value
+		-l|--logfile)
+			logfile=$value
 			shift 2
-			;;
-		-b)
-			example_argument_b=$value
-			shift 2
-			;;
-		-o|--example_argument_opt)
-			example_argument_opt=1
-			shift 1
 			;;
 		*)
 			msg Unknow argument $opt
@@ -95,6 +97,7 @@ done
 msgv 	argument passed:
 msgv 	verbose: $verbose
 msgv 	silent: $silent
+msgv 	logfile: $logfile
 
 
 #	     _             _   
@@ -107,60 +110,72 @@ msgv 	silent: $silent
 
 msg Installing basic tools
 
-sudo pacman --noconfirm -Sy git vi vim neovim nano code
+sudo pacman -S --noconfirm git vi vim neovim nano>> $logfile
+check_output $? || exit -1
 
 # installing c, cpp
 
 msg Installing c/cpp tools
 
-sudo pacman --noconfirm -Sy gcc g++ make clang clang++
+sudo pacman -S --noconfirm  gcc make clang >> $logfile
+check_output $? || exit -1
 
 # install node
 
 msg nodejs tools
 
-yay -S nvm
-
+yay -S --noconfirm --noprogressbar nvm >> $logfile
+check_output $? || exit -1
 echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
-
 source /usr/share/nvm/init-nvm.sh
 
 nvm install 18
+check_output $? || exit -1
 
 nvm use 18
+check_output $? || exit -1
 
-sudo pacman --noconfirm -Sy npm
+sudo pacman -S --noconfirm npm >> $logfile
+check_output $? || exit -1
 
-# install java
+
 
 msg java tools
 
-sudo pacman --noconfirm -Sy jre-openjdk jdk-openjdk openjdk-doc maven
+sudo pacman -S --noconfirm  jre-openjdk jdk-openjdk openjdk-doc maven >> $logfile
+check_output $? || exit -1
 
-# install python
+
 
 msg python tools
 
-sudo pacman --noconfirm -Sy python python-pip pip python-virtualenv
+sudo pacman -S --noconfirm python python-pip python-virtualenv >> $logfile
+check_output $? || exit -1
 
-# install lua
+
 
 msg lua tools
 
-sudo pacman --noconfirm -Sy lua luajit
+sudo pacman -S --noconfirm lua luajit >> $logfile
+check_output $? || exit -1
 
-# installing IDEs
+
 
 msg installing IDEs
 
-sudo pacman --noconfirm -Sy code # eclipse-jee
-# yay -S intellij-idea-community-edition
+sudo pacman -S --noconfirm code >> $logfile # eclipse-jee 
+check_output $? || exit -1
 
-# install other
+yay -S --noconfirm --noprogressbar intellij-idea-community-edition >> $logfile
+check_output $? || exit -1
+
+
 
 msg installing others
 
-# sudo pacman -Sy docker dbeaver mariadb mysql
-# yay -S postaman-bin 
+sudo pacman -S --noconfirm docker dbeaver mariadb mysql >> $logfile
+check_output $? || exit -1
+yay -S --noconfirm --noprogressbar postman-bin  >> $logfile
+check_output $? || exit -1
 
-
+msg Dev tools installed!

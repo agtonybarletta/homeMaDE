@@ -1,8 +1,8 @@
 #!/bin/bash
 
 program_name="install_directories.sh"
-program_desc="Links xdg directories to directories not in home"
-#    Copyright (C) 2020 A.G. Tony Barletta
+program_desc="Links xdg directories to outside home paths (eg hhd)"
+#    Copyright (C) 2022 A.G. Tony Barletta
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or

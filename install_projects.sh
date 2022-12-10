@@ -17,6 +17,7 @@ program_desc="install projects from file list"
 verbose=0
 silent=0
 file_list="projects_list.txt"
+logfile="output.log"
 
 usage(){
 	cat <<END_USAGE
@@ -32,6 +33,7 @@ usage(){
 							project_list.txt
 								git.github.com:user/project1.git
 								git.github.com:user/project2.git,/home/user/path/destination/
+	  --logfile 					set log file [default: $logfile]
 
 END_USAGE
 }
@@ -60,6 +62,13 @@ msg(){
 msge(){
 	>&2 echo $*
 }
+check_output(){
+	if [ "$1" -le "-1" ]; then
+		msge got status code $1
+		msge exiting
+	fi
+	return $1
+}
 
 while [[ $# -gt 0 ]]; do
 	opt=$1
@@ -81,6 +90,10 @@ while [[ $# -gt 0 ]]; do
 			example_argument_a=$value
 			shift 2
 			;;
+		--logfile)
+			logfile=$value
+			shift 2
+			;;
 		*)
 			msg Unknow argument $opt
 			usage
@@ -95,6 +108,7 @@ msgv 	argument passed:
 msgv 	verbose: $verbose
 msgv 	silent: $silent
 msgv 	file_list: $file_list
+msgv 	logfile: $logfile
 
 
 #	     _             _   
@@ -144,7 +158,8 @@ for i in $( cat $file_list) ; do
 	msgv destination $destination
 	
 	msg "cloning $repository in $destination"
-	git -C $destination clone $repository
+	git -C $destination clone $repository >> $logfile
+	check_error $? || exit -1
 
 done
 
