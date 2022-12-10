@@ -124,7 +124,7 @@ sudo pacman -S --noconfirm clementine ffmpeg >> $logfile
 check_output $? || exit -1
 
 msg -------------------------
-msg install 3d modellin tools
+msg install 3d modeling tools
 msg --------------------------
 sudo pacman -S --noconfirm freecad prusa-slicer >> $logfile # blender   
 check_output $? || exit -1
