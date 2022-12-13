@@ -117,7 +117,8 @@ cp ./.xinitrc ~/
 check_output $? || exit -1
 
 
-
+pkill xfconfd
+rm -rf /home/$USER/.cache/*
 msg coping xfce4 config files
 
 cp -r ./config/xfce4 ~/.config

@@ -66,7 +66,13 @@ This is the list of steps needed before running this script (Arch linux)
 17. Install xorg
 	pacman -S xf86-video-intel xorg-server xorg-apps xorg-twm xorg-xinit
 	run twm test, from user run  `echo twm >> ~/.xinitrc; startx`
-	
+18. Fix Hibernate configurations
+    in /etc/default/grub modify GRUB_CMDLINE_LINUX to `GRUB_CMDLINE_LINUX="resume=/dev/sdXY"`
+    run `sudo grub-mkconfig -o /boot/grub/grub.cfg`
+    in /etc/mkinitcpio.conf at HOOKS add `resume` before `filesystems`
+    sudo mkinitcpio -p linux
+
+        
 ## Desktop environment
 
 - Distribution: Arch linux
@@ -86,6 +92,10 @@ cd homeMaDE
 ```
 
 ## TODO
+- [X] add fix hibernate steps
+- [X] add killing xfconfd and rm-rf ~/.cache before coping xfce4 config files
+- [X] fix xfce4-panel trasparency ??
+- [X] fix bluethoot
 - [ ] add progress bar when run pacman ...
 - [ ] write install.sh logic to exclude/include installation files (default excluded: install_projects.sh, install_directories.sh)
 - [ ] write script to compile sass Awaita theme using custom color scheme

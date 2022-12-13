@@ -17,8 +17,8 @@ check_output $? || exit -1
 ./install_directories.sh
 check_output $? || exit -1
 
-./install_projects.sh
-check_output $? || exit -1
+#./install_projects.sh
+#check_output $? || exit -1
 
 ./install_dev.sh
 check_output $? || exit -1
