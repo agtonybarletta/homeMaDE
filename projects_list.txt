@@ -1,2 +1,5 @@
-git@github.com:agtonybarletta/website.git
-git@github.com:agtonybarletta/urlshortener.git
+#git@github.com:agtonybarletta/website.git
+#git@github.com:agtonybarletta/urlshortener.git
+#git@github.com:agtonybarletta/.dotfiles.git,/home/agtonybarletta
+#git@github.com:agtonybarletta/notes.git,/home/agtonybarletta
+git@github.com:agtonybarletta/competitive-prog-exercies.git

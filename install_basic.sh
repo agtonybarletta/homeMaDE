@@ -113,7 +113,8 @@ msg starting installing basic
 msg --------------------------
 
 # install basics 
-sudo pacman --noconfirm -Sy git vi vim man base-devel tree htop curl wget neofetch unzip >> $logfile
+# bind: nslookup
+sudo pacman --noconfirm -Sy git vi vim man base-devel tree htop curl wget neofetch unzip unrar bind >> $logfile
 check_output $? || exit -1
 
 msg installed packages

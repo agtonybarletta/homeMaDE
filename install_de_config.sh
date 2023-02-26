@@ -130,7 +130,7 @@ check_output $? || exit -1
 
 msg installing awesomeWM and its utils
 
-sudo pacman --noconfirm -Sy awesome feh xdotool picom >> $logfile
+sudo pacman --noconfirm -Sy awesome feh xdotool  >> $logfile
 check_output $? || exit -1
 
 
@@ -149,7 +149,7 @@ msg installing DE utils
 sudo pacman --noconfirm -Sy chromium pulseaudio libcanberra pavucontrol \
 	network-manager-applet xdg-user-dirs noto-fonts-emoji ntfs-3g   \
 	thunar-volman gvfs pass xclip pulseaudio-bluetooth bluez blueman \
-	konsole gnome-clocks >> $logfile
+	konsole gnome-clocks powertop lsof bashtop >> $logfile
 check_output $? || exit -1
 
 
@@ -161,4 +161,15 @@ check_output $? || exit -1
 cp -r ./config/konsole ~/.local/share/
 check_output $? || exit -1
 
+msg last fixes...
+msg enabling pulseaudio
+systemctl --user enable pulseaudio.service
+systemctl --user start pulseaudio.service
+msg enabling bluethoot
+systemctl enable bluetooth.service
+systemctl start bluethooth.service
+
+
 msg DE configs installed!
+
+

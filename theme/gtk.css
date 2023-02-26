@@ -1,0 +1,603 @@
+	.xfce4-panel {
+	color: transparent;
+	background-color: transparent;
+	}
+
+	/**Panel top right**/
+	#whiskermenu-button {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#whiskermenu-button:checked {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#whiskermenu-button:hover {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+
+	#clock-button {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: ${agtb_theme_global_bar_button_padding}px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#clock-button:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: ${agtb_theme_global_bar_button_padding}px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#clock-button:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: ${agtb_theme_global_bar_button_padding}px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+
+	#pulseaudio-button:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	/*padding: 10px;*/
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#pulseaudio-button:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	/*padding: 10px;*/
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+
+
+	#xfce4-notification-plugin {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#xfce4-notification-plugin:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#xfce4-notification-plugin:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+
+
+
+
+
+
+	/**Panel Top right**/
+
+
+
+
+
+
+
+	#launcher-arrow {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+
+	}
+
+	#launcher-8 #launcher-arrow {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+
+	}
+
+	#launcher-8 #launcher-arrow:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+
+	}
+
+	#launcher-8 #launcher-arrow:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-10 #launcher-arrow {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-10 #launcher-arrow:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-10 #launcher-arrow:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-12 #launcher-arrow {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-12 #launcher-arrow:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-12 #launcher-arrow:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-13 #launcher-arrow {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#launcher-13 #launcher-arrow:checked {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	}
+
+	#launcher-13 #launcher-arrow:hover {
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+
+
+
+
+	/*Panel Bottom full length*/
+
+
+
+
+	.xfce4-panel .tasklist .toggle:checked {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	}
+
+	.xfce4-panel .tasklist .toggle:hover {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	.xfce4-panel .tasklist .toggle {
+	background-color: #ffffff;
+	color: #272727;
+
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	}
+
+
+	/* ^ This is used to remove icons from the open window plugin if you only want the text ^*/
+	/*
+	.tasklist image {
+		-gtk-icon-transform: scale(0); margin: -10px;
+	}
+	*/
+
+
+
+	#pulseaudio-button {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	/*padding: 10px;*/
+	/*border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	*/
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	#actions-button {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	/*padding: 10px;*/
+	/*border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	*/
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+	#xfce4-power-manager-plugin {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	padding: 10px;
+	/*border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	*/
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+	#sn-button {
+	background-color: #272727;
+	color: #ffffff;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	/*padding: 10px;*/
+	/*border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	*/
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	}
+
+	/*** workspace buttons ***/
+	#xfce-panel-toggle-button {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	/* background-color: #272727; */
+	color: #ffffff;
+	}
+
+	/* TODO do not works */
+	/*** workspace buttons ***/
+	#xfce-panel-toggle-button:checked {
+	padding-left: ${agtb_theme_global_bar_button_padding}px;
+	padding-right: ${agtb_theme_global_bar_button_padding}px;
+	margin-top: ${agtb_theme_global_bar_button_margin}px;
+	margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+	margin-left: ${agtb_theme_global_bar_button_margin}px;
+	margin-right: ${agtb_theme_global_bar_button_margin}px;
+	border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+	border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+	color: #ffffff;
+	}
+
+
+	/* application menu button (start button) */
+	#applicationmenu-button{
+		/*background-color:#00ff00;*/
+	background-color: #272727;
+	padding-left: ${agtb_theme_global_bar_button_padding}px;
+padding-right: ${agtb_theme_global_bar_button_padding}px;
+margin-top: ${agtb_theme_global_bar_button_margin}px;
+margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+margin-left: ${agtb_theme_global_bar_button_left_most_margin}px;
+margin-right: ${agtb_theme_global_bar_button_margin}px;
+border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+}
+
+/*** open application icon ***/
+.xfce4-panel .tasklist .toggle{
+	padding:0px;
+	background-color: transparent;
+margin-top: ${agtb_theme_global_bar_button_margin}px;
+margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+margin-left: ${agtb_theme_global_bar_button_margin}px;
+margin-right: ${agtb_theme_global_bar_button_margin}px;
+border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+}
+.xfce4-panel .tasklist .toggle:hover{
+	padding:0px;
+	background-color: #000000;
+margin-top: ${agtb_theme_global_bar_button_margin}px;
+margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+margin-left: ${agtb_theme_global_bar_button_margin}px;
+margin-right: ${agtb_theme_global_bar_button_margin}px;
+border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+}
+.xfce4-panel .tasklist .toggle:checked{
+	padding:0px;
+	background-color: #272727;
+margin-top: ${agtb_theme_global_bar_button_margin}px;
+margin-bottom: ${agtb_theme_global_bar_button_margin}px;
+margin-left: ${agtb_theme_global_bar_button_margin}px;
+margin-right: ${agtb_theme_global_bar_button_margin}px;
+border-top-left-radius: ${agtb_theme_global_bar_button_radious};
+border-top-right-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-left-radius: ${agtb_theme_global_bar_button_radious};
+border-bottom-right-radius: ${agtb_theme_global_bar_button_radious};
+}
+
+/*
+ *
+ * #xfce-panel-toggle-button {
+padding: 5px;
+margin: 2px;
+
+
+
+
+#applicationmenu-button{
+	background-color:#00ff00;
+}
+
+
+
+
+#xfce-panel-toggle-button {
+padding: 5px;
+margin: 2px;
+}
+
+.xfce4-panel .tasklist .toggle{
+	margin:2px;
+	padding:0px;
+}
+
+#applicationmenu-button{
+	background-color:#00ff00;
+}
+
+
+}*/

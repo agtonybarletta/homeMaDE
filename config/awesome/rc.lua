@@ -615,6 +615,6 @@ end)
 
 
 awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/wallpaper.jpg") 
-awful.spawn.with_shell("picom") 
+--awful.spawn.with_shell("picom") 
 
 -- fixing theme

@@ -1,0 +1,7 @@
+first
+$COLUMNS
+ciao
+echo
+$LINES
+$(echo ciaofromwcho)
+coluns: $COLUMNS and rows: $LINES.

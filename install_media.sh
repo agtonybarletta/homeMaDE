@@ -108,7 +108,8 @@ msgv 	logfile: $logfile
 msg --------------------------
 msg installing image tools
 msg --------------------------
-sudo pacman -S --noconfirm imagemagick rawtherapee gimp  >> $logfile # darktable  gimp inkscape
+sudo pacman -S --noconfirm imagemagick rawtherapee gimp >> $logfile # darktable  gimp inkscape
+yay  -S --noconfirm raw-tumbnailer >> $logfile # darktable  gimp inkscape
 check_output $? || exit -1
 
 msg --------------------------
@@ -134,7 +135,7 @@ check_output $? || exit -1
 msg -------------------------
 msg installling office tools
 msg --------------------------
-sudo pacman -S --noconfirm libreoffice-fresh pandoc texlive-corexreader calibre >> $logfile
+sudo pacman -S --noconfirm libreoffice-fresh pandoc calibre >> $logfile
 check_output $?
 
 msg media tools installed!

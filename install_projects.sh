@@ -149,6 +149,10 @@ fi
 
 for i in $( cat $file_list) ; do
 	msgv line: $i
+	if [[ "$i" =~ ^[\t\s]*#.*$ ]]; then
+		msgv matched comment
+		continue 
+	fi
 	repository=${i%%,*}
 	destination=${i##*,}
 	msgv repository $repository
@@ -159,7 +163,7 @@ for i in $( cat $file_list) ; do
 	
 	msg "cloning $repository in $destination"
 	git -C $destination clone $repository >> $logfile
-	check_error $? || exit -1
+	check_output $? || exit -1
 
 done
 
